@@ -1,6 +1,6 @@
 # igScrape
 
-Scrape Instagram photos by hashtag. igScrape downloads all images from posts that have a given hashtag. The [Scrapy](https://github.com/scrapy/scrapy) web scraping framework is used to build the spider.
+Scrape Instagram photos by hashtag. igScrape downloads all images from posts that have a given hashtag. The [Scrapy web scraping framework](https://github.com/scrapy/scrapy) is used to build the spider.
 
 ## To start using igScrape
 
