@@ -10,10 +10,10 @@ import os
 class IgSpider(scrapy.Spider):
     name = "igspider"
 
-    def __init__(self, tag=None, country_code=None):
+    def __init__(self, tag=None, country=None):
         self.tag = tag
         # Country code follows ISO 3166-1 alpha-2 codes
-        self.country_code = country_code
+        self.country_code = country
         # Ask for tag argument if it is not passed by user
         if self.tag == None:
             self.tag = input("Name of tag? ")
