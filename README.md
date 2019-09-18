@@ -10,7 +10,7 @@ You can run the spider using the `scrapy crawl igspider` command. To specify the
 
 If you want to crawl geotagged posts from a certain country, you can pass the `-a country=<country_code>` option and argument. For example:
     
-    $ scrapy crawl chubbygrub -a tag=chickenrice -a country=SG
+    $ scrapy crawl igspider -a tag=chickenrice -a country=SG
 
 Country codes are in [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#Officially_assigned_code_elements) format. If `country` argument is passed, images from posts that are not geotagged will not be scraped.
 
