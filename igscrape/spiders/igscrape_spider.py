@@ -36,7 +36,7 @@ class IgSpider(scrapy.Spider):
             f.write(';'.join(self.shortcode_hist))
             
     def start_requests(self):
-        url = 'https://www.instagram.com/explore/tags/' + self.tag + '/?__a=1'
+        url = 'https://www.instagram.com/explore/tags/' + self.tag + '/?__a=1&__d=dis'
         yield scrapy.Request(url, self.parse)
 
     def parse(self, response):
@@ -52,12 +52,12 @@ class IgSpider(scrapy.Spider):
                 # Add shortcode to history set
                 self.shortcode_hist.add(shortcode)
                 # Follow link to post
-                yield scrapy.Request('https://www.instagram.com/p/' + shortcode + '/?__a=1', callback=self.parse_post)
+                yield scrapy.Request('https://www.instagram.com/p/' + shortcode + '/?__a=1&__d=dis', callback=self.parse_post)
 
         if has_next_page:
             end_cursor = output['graphql']['hashtag']['edge_hashtag_to_media']['page_info']['end_cursor']
             # Follow link to next page
-            yield scrapy.Request('https://www.instagram.com/explore/tags/' + self.tag + '/?__a=1&max_id=' + end_cursor, self.parse)
+            yield scrapy.Request('https://www.instagram.com/explore/tags/' + self.tag + '/?__a=1&__d=dis&max_id=' + end_cursor, self.parse)
             
         # Save shortcode history
         self.write_history()
